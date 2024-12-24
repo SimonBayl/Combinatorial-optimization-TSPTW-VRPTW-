@@ -1,6 +1,4 @@
-from pyconcorde_local.concorde import Problem, run_concorde
-from pyconcorde_local.heuristic_dump import heuristic_dump_insertion, best_insertion, best_insertion_multicomodity, get_tour_cost
-
+from concorde import Problem, run_concorde
 import pandas as pd
 import time
 import numpy as np
@@ -87,6 +85,13 @@ def solve_atsp_concorde(m, final_dump, path_concorde) :
     
     return atsp_tour
 
+
+def get_tour_cost(tour, distance_matrix):
+    cost = 0
+    for i in range(len(tour) - 1):
+        cost += distance_matrix[tour[i], tour[i+1]]
+    cost += distance_matrix[tour[-1], tour[0]]
+    return cost
 
 def main_solve(distance_matrix, path_concorde, dump = [], weights = [], Q = None, init_tour = []) :
     """ 

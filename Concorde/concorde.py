@@ -4,11 +4,9 @@ import subprocess
 import tempfile
 from typing import Optional, List
 
-from pyconcorde_local.executable import check_concorde_executable
-from pyconcorde_local.problem import Problem
-from pyconcorde_local.solution import Solution
-
-
+from executable import check_concorde_executable
+from problem import Problem
+from solution import Solution
 
 
 def run_concorde(problem, concorde="concorde", extra_args=None):
